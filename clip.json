@@ -1,6 +1,6 @@
 {
   "name": "@cp/jiezi-admin",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "解字计划管理 — 申请、学生、额度、重试",
   "runtime": "bun",
   "main": "index.ts",
