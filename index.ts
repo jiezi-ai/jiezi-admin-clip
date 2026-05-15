@@ -352,10 +352,9 @@ class JieziAdmin extends Clip {
       if (!user) return { error: `用户 ${input.username} 不存在` };
 
       const quotaToAdd = input.amount * 500000;
-      const newQuota = user.quota + quotaToAdd;
-      const result: any = await newApi("/api/user/", {
-        method: "PUT",
-        body: JSON.stringify({ id: user.id, username: user.username, quota: newQuota }),
+      const result: any = await newApi("/api/user/manage", {
+        method: "POST",
+        body: JSON.stringify({ id: user.id, action: "add_quota", mode: "add", value: quotaToAdd }),
       });
       if (!result.success) return { error: result.message };
 
@@ -363,7 +362,7 @@ class JieziAdmin extends Clip {
         username: input.username,
         added: `$${input.amount}`,
         previous_quota_usd: `$${(user.quota / 500000).toFixed(2)}`,
-        new_quota_usd: `$${(newQuota / 500000).toFixed(2)}`,
+        new_quota_usd: `$${((user.quota + quotaToAdd) / 500000).toFixed(2)}`,
       };
     },
   );
@@ -381,9 +380,9 @@ class JieziAdmin extends Clip {
       if (!user) return { error: `用户 ${input.username} 不存在` };
 
       const status = input.action === "disable" ? 2 : 1;
-      const result: any = await newApi("/api/user/", {
-        method: "PUT",
-        body: JSON.stringify({ id: user.id, username: user.username, status }),
+      const result: any = await newApi("/api/user/manage", {
+        method: "POST",
+        body: JSON.stringify({ id: user.id, action: "status", value: status }),
       });
       if (!result.success) return { error: result.message };
 
