@@ -1,0 +1,8 @@
+{
+  "name": "@cp/jiezi-admin",
+  "version": "0.2.1",
+  "private": true,
+  "dependencies": {
+    "@pinixai/core": "^0.15.0"
+  }
+}
