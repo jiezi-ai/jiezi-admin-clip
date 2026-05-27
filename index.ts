@@ -16,8 +16,8 @@ interface Config {
 }
 
 const DEFAULTS: Partial<Config> = {
-  jiezi_api_url: "https://api.jiezi.ai",
-  newapi_url: "http://43.138.244.147:3000",
+  jiezi_api_url: "https://api.jieziai.cn",
+  newapi_url: "https://llm.jieziai.cn",
 };
 
 const CONFIG_KEYS: Record<keyof Config, string> = {
@@ -127,7 +127,7 @@ class JieziAdmin extends Clip {
 
 学生申请经过以下状态流转，每个状态对应系统自动执行的动作：
 
-- **draft** — 学生在 jiezi.ai/apply 填表获得申请码（JZ-XXXX），等待提交 GitHub Issue
+- **draft** — 学生在 jieziai.cn/apply 填表获得申请码（JZ-XXXX），等待提交 GitHub Issue
 - **approved** — GitHub Issue 触发 webhook，Gemini LLM 审核通过，生成邮箱验证 token
 - **rejected** — Gemini 审核未通过（Issue 评论原因），学生可修改信息后重新提交 Issue
 - **emailed** — 验证邮件已发送到学生 edu 邮箱，等待学生点击验证链接
@@ -136,10 +136,10 @@ class JieziAdmin extends Clip {
 
 ## 基础设施
 
-- **api.jiezi.ai** — Cloudflare Workers，处理申请、webhook、验证、数据查询
+- **api.jieziai.cn** — Cloudflare Workers，处理申请、webhook、验证、数据查询
 - **New API** — 广州 VPS，LLM 网关，管理学生 API 账号和额度，通过新加坡代理访问 OpenRouter
 - **D1** — 申请数据存储
-- **Resend** — 邮件发送（grant@jiezi.ai）
+- **Resend** — 邮件发送（grant@jieziai.cn）
 - **GitHub** — jiezi-ai/grant 仓库，Issue 申请 + webhook 自动化`;
 
   patterns = [

@@ -57,9 +57,9 @@ pinix invoke jiezi-admin retry --issue 6
 
 | Key | 说明 | 默认值 |
 |-----|------|--------|
-| `jiezi_api_url` | 解字 API 地址 | `https://api.jiezi.ai` |
+| `jiezi_api_url` | 解字 API 地址 | `https://api.jieziai.cn` |
 | `jiezi_admin_token` | 管理后台 Token | — |
-| `newapi_url` | New API 地址 | `http://43.138.244.147:3000` |
+| `newapi_url` | New API 地址 | `https://llm.jieziai.cn` |
 | `newapi_admin_user` | New API 管理员用户名 | — |
 | `newapi_admin_pass` | New API 管理员密码 | — |
 
